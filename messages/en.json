@@ -1,0 +1,36 @@
+{
+  "invite": {
+    "curtain_tap": "Tap to Open",
+    "fallback_name": "You Are Invited",
+    "tagline": "You are cordially invited",
+    "couple": "Sangram & Prajakta",
+    "couple_full": "Sangram Tukaram Konde weds Prajakta Aniruddha Jadhav",
+    "date": "13th May, 2026",
+    "presence_heading": "We Need Your Presence",
+    "events": {
+      "haldi": "Haldi Ceremony",
+      "wedding": "Wedding Ceremony",
+      "feast": "Feast & Reception"
+    },
+    "event_times": {
+      "haldi": "12:30 PM",
+      "wedding": "6:24 PM",
+      "feast": "1:00 PM – 4:00 PM"
+    },
+    "venue_heading": "Where It Happens",
+    "venue_name": "Akshay Lawns, Shirwal",
+    "venue_address": "Akshay Lawns, Lawkim Bypass Rd, opposite Aathavale farm, Phata, Shindewadi, Moh tarf shirwal, Maharashtra 412801",
+    "directions": "Get Directions",
+    "couple_heading": "The Happy Couple",
+    "bride": "Prajakta Aniruddha Jadhav",
+    "groom": "Sangram Tukaram Konde",
+    "blessings": "Two souls, one heart — a bond written in the stars.",
+    "footer": "With love from the Konde & Jadhav families",
+    "countdown": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    }
+  }
+}

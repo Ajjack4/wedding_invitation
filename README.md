@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sangram & Prajakta — Wedding Invitation
 
-## Getting Started
+A beautiful wedding invitation website built with Next.js 16, Tailwind CSS v4, and Framer Motion.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Styling**: Tailwind CSS v4 with custom `@theme` tokens
+- **Animations**: Framer Motion
+- **Icons**: Custom inline SVGs (lotus, diya, mandap, marigold, rings)
+- **Maps**: Google Maps embed (iframe)
+- **i18n**: Next.js built-in routing with JSON dictionaries
+- **Fonts**: Playfair Display · Lato · Tiro Devanagari Marathi
+
+---
+
+## URL Structure
+
+| URL | Description |
+|-----|-------------|
+| `/en` | English, fallback name "You Are Invited" |
+| `/mar` | Marathi, fallback "आपले स्वागत आहे" |
+| `/en/Rahul-Sharma` | English, invitee "Rahul Sharma" |
+| `/mar/Priya-Patil` | Marathi, invitee "Priya Patil" |
+
+Hyphens in the invitee segment are replaced with spaces and title-cased automatically.
+
+---
+
+## Adding Real Photos
+
+1. Place the bride's photo at `public/images/bride.jpg`
+2. Place the groom's photo at `public/images/groom.jpg`
+3. Open [components/CoupleSection.tsx](components/CoupleSection.tsx) and replace the `src` props:
+   ```tsx
+   // Groom — replace placeholder
+   src="/images/groom.jpg"
+   // Bride — replace placeholder
+   src="/images/bride.jpg"
+   ```
+4. Remove the `placehold.co` entry from `next.config.ts` once real photos are in place.
+
+---
+
+## Generating Invitee URLs
+
+Replace spaces in the guest's name with hyphens:
+
+```
+Rahul Sharma  →  /en/Rahul-Sharma
+Priya Patil   →  /en/Priya-Patil
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Bulk-generate a share list:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```js
+const guests = ["Rahul Sharma", "Anita Patil", "Vikram Joshi"]
+const links = guests.map(
+  name => `https://your-domain.com/en/${name.replace(/ /g, '-')}`
+)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+1. Push to a GitHub repository.
+2. Import the project at [vercel.com](https://vercel.com).
+3. Set **Root Directory** to `wedding_invitation` if the repo root is the parent folder.
+4. No environment variables needed.
+5. Click **Deploy**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`generateStaticParams` pre-generates both `/en` and `/mar` layouts for fast static delivery.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## i18n
+
+Translation files are in [`messages/en.json`](messages/en.json) and [`messages/mar.json`](messages/mar.json). Edit keys there to update text site-wide. To add a new language, add a new file and register it in [`app/[lang]/dictionaries.ts`](app/%5Blang%5D/dictionaries.ts).
