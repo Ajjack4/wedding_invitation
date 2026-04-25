@@ -36,10 +36,28 @@ const tiroDevanagari = Tiro_Devanagari_Marathi({
   weight: '400',
 })
 
+const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : 'http://localhost:3000'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: 'Sangram & Prajakta — Wedding Invitation',
   description:
     'You are cordially invited to the wedding of Sangram Tukaram Konde and Prajakta Aniruddha Jadhav on 13 May 2026.',
+  openGraph: {
+    title: 'Sangram & Prajakta — Wedding Invitation',
+    description: 'You are cordially invited to the wedding of Sangram Tukaram Konde and Prajakta Aniruddha Jadhav on 13 May 2026.',
+    images: [{ url: '/images/metadata-image.jpeg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sangram & Prajakta — Wedding Invitation',
+    description: 'You are cordially invited to the wedding of Sangram Tukaram Konde and Prajakta Aniruddha Jadhav on 13 May 2026.',
+    images: ['/images/metadata-image.jpeg'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
