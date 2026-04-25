@@ -5,9 +5,8 @@ import Hero from '../../../components/Hero'
 import EventsTimeline from '../../../components/EventsTimeline'
 import VenueMap from '../../../components/VenueMap'
 import CoupleSection from '../../../components/CoupleSection'
-import BlessingsSection from '../../../components/BlessingsSection'
+import RSVPSection from '../../../components/RSVPSection'
 import Footer from '../../../components/Footer'
-import FloatingPetals from '../../../components/FloatingPetals'
 
 function toTitleCase(str: string): string {
   return str
@@ -38,20 +37,19 @@ export default async function InvitationPage({
 
   return (
     <>
-      <FloatingPetals />
       <Curtain
         inviteeName={inviteeName}
         tagline={t.tagline}
         tapText={t.curtain_tap}
         isMar={isMar}
       />
-      <main id="main-content" className="relative z-10">
+      <main id="main-content" style={{ background: '#1a1008' }}>
         <Hero dict={t} isMar={isMar} />
         <EventsTimeline dict={t} isMar={isMar} />
-        <VenueMap dict={t} isMar={isMar} />
         <CoupleSection dict={t} isMar={isMar} />
-        <BlessingsSection dict={t} isMar={isMar} />
-        <Footer dict={t} lang={lang} invitee={invitee} isMar={isMar} />
+        <VenueMap dict={t} isMar={isMar} />
+        <RSVPSection dict={t.rsvp} isMar={isMar} />
+        {/* <Footer dict={t} lang={lang} invitee={invitee} isMar={isMar} /> */}
       </main>
     </>
   )

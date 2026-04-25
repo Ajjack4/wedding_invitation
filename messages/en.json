@@ -3,9 +3,9 @@
     "curtain_tap": "Tap to Open",
     "fallback_name": "You Are Invited",
     "tagline": "You are cordially invited",
-    "couple": "Sangram & Prajakta",
+    "couple": "Prajakta & Sangram",
     "couple_full": "Sangram Tukaram Konde weds Prajakta Aniruddha Jadhav",
-    "date": "13th May, 2026",
+    "date": "13 May 2026",
     "presence_heading": "We Need Your Presence",
     "events": {
       "haldi": "Haldi Ceremony",
@@ -31,6 +31,23 @@
       "hours": "Hours",
       "minutes": "Minutes",
       "seconds": "Seconds"
+    },
+    "rsvp": {
+      "join_label": "Join us",
+      "title": "Will you be there?",
+      "sub": "Kindly let us know by 10th May 2026 so we can make the most special arrangements for you.",
+      "btn": "RSVP Now",
+      "modal_title": "RSVP",
+      "modal_sub": "We'd love to celebrate with you",
+      "name_label": "Full Name",
+      "name_placeholder": "Your name",
+      "phone_label": "Mobile Number",
+      "phone_placeholder": "+91 00000 00000",
+      "guests_label": "Total Guests",
+      "guests_placeholder": "1",
+      "submit": "Confirm Attendance",
+      "success_title": "See you there!",
+      "success_text": "Thank you for confirming. We can't wait to celebrate with you."
     }
   }
 }
