@@ -12,8 +12,8 @@ interface EventsDict {
 }
 
 const CARDS: { key: CardKey; img: string; alt: string }[] = [
-  { key: 'haldi',   img: '/images/haldi.png',            alt: 'Haldi Ceremony' },
   { key: 'wedding', img: '/images/wedding_ceremony.png', alt: 'Wedding Ceremony' },
+  { key: 'haldi',   img: '/images/haldi.png',            alt: 'Haldi Ceremony' },
   { key: 'feast',   img: '/images/feast.png',            alt: 'Feast & Reception' },
 ]
 
