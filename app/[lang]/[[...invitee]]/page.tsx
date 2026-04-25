@@ -6,7 +6,6 @@ import EventsTimeline from '../../../components/EventsTimeline'
 import VenueMap from '../../../components/VenueMap'
 import CoupleSection from '../../../components/CoupleSection'
 import RSVPSection from '../../../components/RSVPSection'
-import Footer from '../../../components/Footer'
 
 function toTitleCase(str: string): string {
   return str
@@ -22,18 +21,20 @@ export default async function InvitationPage({
 }) {
   const { lang, invitee } = await params
 
-  if (!hasLocale(lang)) {
-    redirect('/en')
+  // Known locale (/en or /mar) → redirect to clean URL
+  if (hasLocale(lang)) {
+    if (invitee && invitee.length > 0) {
+      redirect('/' + invitee.join('/'))
+    }
+    redirect('/')
   }
 
-  const dict = await getDictionary(lang)
+  // First segment is not a locale → treat entire path as invitee name
+  // e.g. /john-doe → "John Doe", /john/doe → "John Doe"
+  const dict = await getDictionary('en')
   const t = dict.invite
-
-  const inviteeName = invitee
-    ? toTitleCase(invitee.join(' ').replace(/-/g, ' '))
-    : t.fallback_name
-
-  const isMar = lang === 'mar'
+  const nameSegments = [lang, ...(invitee ?? [])]
+  const inviteeName = toTitleCase(nameSegments.join(' ').replace(/-/g, ' '))
 
   return (
     <>
@@ -41,15 +42,14 @@ export default async function InvitationPage({
         inviteeName={inviteeName}
         tagline={t.tagline}
         tapText={t.curtain_tap}
-        isMar={isMar}
+        isMar={false}
       />
       <main id="main-content" style={{ background: '#1a1008' }}>
-        <Hero dict={t} isMar={isMar} />
-        <EventsTimeline dict={t} isMar={isMar} />
-        <CoupleSection dict={t} isMar={isMar} />
-        <VenueMap dict={t} isMar={isMar} />
-        <RSVPSection dict={t.rsvp} isMar={isMar} />
-        {/* <Footer dict={t} lang={lang} invitee={invitee} isMar={isMar} /> */}
+        <Hero dict={t} isMar={false} />
+        <EventsTimeline dict={t} isMar={false} />
+        <CoupleSection dict={t} isMar={false} />
+        <VenueMap dict={t} isMar={false} />
+        <RSVPSection dict={t.rsvp} isMar={false} />
       </main>
     </>
   )

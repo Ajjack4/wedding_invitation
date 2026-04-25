@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 interface HeroDict {
@@ -39,17 +38,21 @@ export default function Hero({ dict, isMar }: { dict: HeroDict; isMar: boolean }
         overflow: 'hidden',
       }}
     >
-      {/* Background photo */}
-      <div style={{ position: 'absolute', inset: 0 }}>
-        <Image
+      {/* Background photo — mobile/desktop via <picture> */}
+      <picture style={{ position: 'absolute', inset: 0, display: 'block' }}>
+        <source media="(min-width: 768px)" srcSet="/images/wedding-arch-deskstop.png" />
+        <img
           src="/images/wedding_arch1.jpeg"
           alt="Wedding arch"
-          fill
-          priority
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
-          sizes="100vw"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top',
+            display: 'block',
+          }}
         />
-      </div>
+      </picture>
 
       {/* Radial warm overlay */}
       <div
@@ -70,7 +73,7 @@ export default function Hero({ dict, isMar }: { dict: HeroDict; isMar: boolean }
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'flex-start',
-          paddingTop: '8%',
+          paddingTop: '15%',
           textAlign: 'center',
           padding: '8% 20px 0',
         }}

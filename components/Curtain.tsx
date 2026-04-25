@@ -132,6 +132,7 @@ export default function Curtain({ inviteeName, isMar }: CurtainProps) {
   if (step === 6) return null
 
   const isFading = step === 5
+  const hasName = inviteeName.length > 0
   const coupleText = isMar
     ? 'संग्राम & प्राजक्ताचा विवाह'
     : "Prajakta & Sangram's Wedding"
@@ -159,37 +160,39 @@ export default function Curtain({ inviteeName, isMar }: CurtainProps) {
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
       />
 
-      {/* Invitee name */}
-      <p
-        style={{
-          fontFamily: 'var(--font-cormorant)',
-          fontSize: 'clamp(1.6rem, 7vw, 2.25rem)',
-          fontWeight: 300,
-          color: '#f5e8d0',
-          letterSpacing: '0.02em',
-          position: 'relative',
-          zIndex: 1,
-          opacity: step >= 1 ? 1 : 0,
-          transform: step >= 1 ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.8s ease, transform 0.8s ease',
-        }}
-      >
-        {inviteeName}
-      </p>
+      {/* Invitee name — only when a name was provided */}
+      {hasName && (
+        <p
+          style={{
+            fontFamily: 'var(--font-cormorant)',
+            fontSize: 'clamp(1.6rem, 7vw, 2.25rem)',
+            fontWeight: 300,
+            color: '#f5e8d0',
+            letterSpacing: '0.02em',
+            position: 'relative',
+            zIndex: 1,
+            opacity: step >= 1 ? 1 : 0,
+            transform: step >= 1 ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease',
+          }}
+        >
+          {inviteeName}
+        </p>
+      )}
 
-      {/* Tagline */}
+      {/* Tagline — appears at step 1 when no name, step 2 when name present */}
       <p
         style={{
           fontFamily: 'var(--font-cormorant)',
-          fontSize: 'clamp(0.75rem, 3vw, 1rem)',
-          letterSpacing: '0.22em',
+          fontSize: hasName ? 'clamp(0.75rem, 3vw, 1rem)' : 'clamp(1.2rem, 5vw, 1.5rem)',
+          letterSpacing: hasName ? '0.22em' : '0.18em',
           textTransform: 'uppercase',
           color: '#b8874a',
-          marginTop: 14,
+          marginTop: hasName ? 14 : 0,
           position: 'relative',
           zIndex: 1,
-          opacity: step >= 2 ? 1 : 0,
-          transform: step >= 2 ? 'translateY(0)' : 'translateY(16px)',
+          opacity: step >= (hasName ? 2 : 1) ? 1 : 0,
+          transform: step >= (hasName ? 2 : 1) ? 'translateY(0)' : 'translateY(16px)',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
         }}
       >

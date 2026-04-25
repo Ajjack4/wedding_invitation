@@ -225,16 +225,16 @@ export default function CoupleSection({ dict, isMar }: { dict: CoupleDict; isMar
       </h2>
 
       <PhotoRowLeft
-        src="/images/photo_prajakta.png"
+        src="/images/photo_prajakta.jpeg"
         alt="Prajakta"
         name={firstName}
         caption={isMar ? 'तेजस्वी, सुंदर\nआणि प्रेमाने भरलेली' : 'Radiant, graceful\nand full of love'}
       />
 
-      <PhotoCenter src="/images/photo_couple.png" alt="Couple together" />
+      <PhotoCenter src="/images/photo_couple1.jpeg" alt="Couple together" />
 
       <PhotoRowRight
-        src="/images/photo_sangram.png"
+        src="/images/photo_couple2.jpeg"
         alt="Sangram"
         name={isMar ? 'एकत्र\nसदैव' : 'Together\nforever'}
         caption={isMar ? '१३ मे २०२६\nअक्षय लॉन्स' : '13 May 2026\nAkshay Lawns'}
