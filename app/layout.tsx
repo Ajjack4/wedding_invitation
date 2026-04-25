@@ -44,18 +44,18 @@ const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: 'Sangram & Prajakta — Wedding Invitation',
+  title: 'Prajakta & Sangram — Wedding Invitation',
   description:
-    'You are cordially invited to the wedding of Sangram Tukaram Konde and Prajakta Aniruddha Jadhav on 13 May 2026.',
+    'You are cordially invited to the wedding of Prajakta Aniruddha Jadhav and Sangram Tukaram Konde on 13 May 2026.',
   openGraph: {
-    title: 'Sangram & Prajakta — Wedding Invitation',
-    description: 'You are cordially invited to the wedding of Sangram Tukaram Konde and Prajakta Aniruddha Jadhav on 13 May 2026.',
+    title: 'Prajakta & Sangram — Wedding Invitation',
+    description: 'You are cordially invited to the wedding of Prajakta Aniruddha Jadhav and Sangram Tukaram Konde on 13 May 2026.',
     images: [{ url: '/images/metadata-image.jpeg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sangram & Prajakta — Wedding Invitation',
-    description: 'You are cordially invited to the wedding of Sangram Tukaram Konde and Prajakta Aniruddha Jadhav on 13 May 2026.',
+    title: 'Prajakta & Sangram — Wedding Invitation',
+    description: 'You are cordially invited to the wedding of Prajakta Aniruddha Jadhav and Sangram Tukaram Konde on 13 May 2026.',
     images: ['/images/metadata-image.jpeg'],
   },
 }
